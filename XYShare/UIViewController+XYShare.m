@@ -11,6 +11,10 @@
 #import <UMShare/UMShare.h>
 #import <UShareUI/UShareUI.h>
 
+#import <objc/runtime.h> //包含对类、成员变量、属性、方法的操作
+#import <objc/message.h> //包含消息机制
+
+
 static const int block_key;
 
 @interface UIViewController()<UMSocialShareMenuViewDelegate>
