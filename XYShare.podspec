@@ -127,7 +127,7 @@ Pod::Spec.new do |s|
   s.frameworks = "UMCommon", "SecurityEnvSDK", "UTDID", "UMShare", "SecurityEnvSDK","UShareUI"
 
   # s.library   = "iconv"
-  s.libraries = "libSocialQQ", "libSocialSina", "libSocialWeChat"
+  s.libraries = "SocialQQ", "SocialSina", "SocialWeChat"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
