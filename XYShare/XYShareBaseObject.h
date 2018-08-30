@@ -6,9 +6,9 @@
 //  Copyright © 2018年 lvwanchang. All rights reserved.
 //
 
-#import "MMBaseNSObject.h"
+#import "NSObject.h"
 
-@interface XYShareBaseObject : MMBaseNSObject
+@interface XYShareBaseObject : NSObject
 
 /**
  分享标题
