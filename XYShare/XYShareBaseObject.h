@@ -6,7 +6,7 @@
 //  Copyright © 2018年 lvwanchang. All rights reserved.
 //
 
-#import "NSObject.h"
+#import <UIKit/UIKit.h>
 
 @interface XYShareBaseObject : NSObject
 
