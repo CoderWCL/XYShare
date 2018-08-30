@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "XYShare"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "share used on iOS."
 
   # This description is used to generate tags and improve search results.
@@ -124,7 +124,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "UMCommon", "SecurityEnvSDK", "UTDID", "UMShare", "SecurityEnvSDK","UShareUI","libSocialQQ", "libSocialSina", "libSocialWeChat"
+  # s.frameworks = "UMCommon", "SecurityEnvSDK", "UTDID", "UMShare", "SecurityEnvSDK","UShareUI","libSocialQQ", "libSocialSina", "libSocialWeChat"
 
   # s.library   = "iconv"
   #s.libraries = ""
@@ -146,4 +146,7 @@ Pod::Spec.new do |s|
   s.dependency 'UMCShare/Social/ReducedWeChat'
   s.dependency 'UMCShare/Social/ReducedQQ'
   s.dependency 'UMCShare/Social/ReducedSina'
+
+  s.static_framework  =  true
+
 end
