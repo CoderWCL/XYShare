@@ -14,6 +14,10 @@
 #import <objc/runtime.h> //包含对类、成员变量、属性、方法的操作
 #import <objc/message.h> //包含消息机制
 
+//弱引用
+#define WEAKSELF  __weak typeof(self) weakSelf = self;
+//强引用
+#define STRONGSELF  __strong typeof(weakSelf) strongSelf = weakSelf;
 
 static const int block_key;
 
