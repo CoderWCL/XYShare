@@ -34,7 +34,7 @@ static const int block_key;
  @param complete 分享结果回调
  */
 - (void)showShareWithShareMenuViewStatus:(void(^)(int status))menuViewStatus
-                           clickPlatform:(XYShareBaseObject *(^)(void))clickComplete
+                           clickPlatform:(XYShareBaseObject *(^)(XYSharedPlatformType platformType))clickComplete
                                 complete:(void(^)(NSError *error))complete {
     
     //为menuViewStatus 赋值
@@ -47,9 +47,25 @@ static const int block_key;
     WEAKSELF
     //显示分享面板
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        XYSharedPlatformType type;
+        switch (platformType) {
+            case UMSocialPlatformType_Sina:
+                type = XYSharedPlatformTypeSina;
+                break;
+            case UMSocialPlatformType_WechatSession:
+                type = XYSharedPlatformTypeWechatSession;
+                break;
+            case UMSocialPlatformType_WechatTimeLine:
+                type = XYSharedPlatformTypeWechatTimeLine;
+                break;
+                
+            default:
+                type = XYSharedPlatformTypeQQ;
+                break;
+        }
         STRONGSELF
         if (clickComplete) {
-            id shareObject = clickComplete();
+            id shareObject = clickComplete(type);
             [strongSelf showUMShareWithShareObject:shareObject platformType:platformType complete:^(NSError *error) {
                 if (complete) {
                     complete(error);
@@ -89,11 +105,11 @@ static const int block_key;
         [shareObject setShareImage:shareImage.shareImage];
         
         umShareObject = shareObject;
-
+        
     } else if ([shareObject isKindOfClass:[XYShareWebLink class]]) {
         
     }
-
+    
     //分享消息对象设置分享内容对象
     messageObject.shareObject = umShareObject;
     
@@ -131,7 +147,7 @@ static const int block_key;
     if (block) {
         block(XYShareMenuStatusDidAppear);
     }
-
+    
 }
 
 /**

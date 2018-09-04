@@ -35,6 +35,6 @@ typedef enum : NSUInteger {
  @param complete 分享结果回调
  */
 - (void)showShareWithShareMenuViewStatus:(void(^)(int status))menuViewStatus
-                           clickPlatform:(XYShareBaseObject *(^)(void))clickComplete
+                           clickPlatform:(XYShareBaseObject *(^)(XYSharedPlatformType platformType))clickComplete
                                 complete:(void(^)(NSError *error))complete;
 @end
